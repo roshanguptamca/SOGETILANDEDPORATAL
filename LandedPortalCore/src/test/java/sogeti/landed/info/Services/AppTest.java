@@ -35,4 +35,14 @@ public class AppTest
     {
         assertTrue( true );
     }
+    
+    /**
+     * test commit on github
+     */
+    
+    public void testCommit(){
+    	
+    }
+    
+    
 }
