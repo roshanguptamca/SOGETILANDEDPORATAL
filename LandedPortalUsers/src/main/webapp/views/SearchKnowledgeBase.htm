@@ -1,0 +1,40 @@
+<p>Search Knowledge Base</p>
+<table align="center" class="table table-striped">
+	<tr>
+		<td>Search By Customer :</td>
+		<td><select>
+				<option value="ing">ING Bank</option>
+				<option value="rabo">RaboBank</option>
+				<option value="abn">ABN Amro</option>
+				<option value="sns">SNS Bank</option>
+		</select></td>
+		<td>&nbsp;&nbsp;Date : <input type="text"></td>
+		<td>&nbsp;&nbsp;
+			<button type="button" class="btn btn-info" ng-click="getKB()">Search</button>
+</table>
+<br>
+
+<div class="container" ng-controller="SearchkbCtrl">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Customer Name</th>
+				<th>Employee Name</th>
+				<th>Questions</th>
+				<th>Answers</th>
+				<th>Date of Interview</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="kb in names">
+				<td>{{kb.Name}}</td>
+				<td>{{kb.Name}}</td>
+				<td>{{kb.Country}}</td>
+				<td>{{kb.Country}}</td>
+				<td>{{kb.Name}}</td>
+				<td>{{kb.Country}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+

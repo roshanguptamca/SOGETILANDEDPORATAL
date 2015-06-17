@@ -3,32 +3,26 @@
 /**
  * @ngdoc overview
  * @name webappApp
- * @description
- * # webappApp
- *
+ * @description # webappApp
+ * 
  * Main module of the application.
  */
-angular
-  .module('webappApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+
+var webappApp = angular.module('webappApp', ['ngRoute', 'ngResource']);
+webappApp.config([ '$routeProvider', function($routeProvider){
+  	$routeProvider.when('/searchemp', {
+		templateUrl : 'views/SearchEmployee.htm',
+		controller : 'SearchempCtrl'
+	}).when('/searchkb', {
+		templateUrl : 'views/SearchKnowledgeBase.htm',
+		controller : 'SearchkbCtrl'
+	}).when('/login', {
+		templateUrl : 'views/Login.htm',
+		controller : 'loginCtrl'
+	}).otherwise({
+		redirectTo : '/searchemp'
+	});
+} ]);
+
+
+
