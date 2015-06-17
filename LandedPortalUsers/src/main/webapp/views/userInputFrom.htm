@@ -1,0 +1,134 @@
+<div ng-controller="UserManagmentCtrl" class="jumbotron">
+	
+	<div class="container" align="left">
+	<div class="well" align="center"> 
+		<h3>User Input Form</h3>
+
+
+    <div class="progress">
+        <div class="progress-bar" style="width: {{userProfileCompleation}}%;">
+           Profile Completion Status {{userProfileCompleation}}%
+        </div>
+    </div>
+
+	</div>
+	<form name="UserForm" class="app-form" >
+
+			<div class="form-group">
+					<label for="name" class="col-sm-2 control-label">Name</label>
+					
+						<input name="name" type="text"
+							placeholder="Enter User Name" required ng-model="user.name" ng-maxlength="50"/> 
+							
+							<span ng-show="UserForm.name.$dirty && UserForm.name.$error.required" 
+							class="requiredvalidationerror">Required</span>
+							
+							<span ng-show="UserForm.name.$dirty && UserForm.name.$error.maxlength"
+							class="requiredvalidationerror">Maximum 50 Char Allowed</span>
+					</div>
+					
+					
+					<div class="form-group">
+					
+					<label for="empid" class="col-sm-2 control-label">Emp Id</label>
+					
+						<input  name="empid" type="text"
+							placeholder=" Enter Employee Id" required ng-model="user.empid" ng-maxlength="10"/>
+							
+						<span ng-show="UserForm.empid.$dirty && UserForm.empid.$error.required" class="requiredvalidationerror">Required</span>
+						
+						<span ng-show="UserForm.empid.$dirty && UserForm.empid.$error.maxlength" 
+						class="requiredvalidationerror">Maximum 10 Char Allowed</span>
+						
+					</div>
+					
+										<div class="form-group">
+					<label for="email" class="col-sm-2 control-label">Email</label>
+						<input type="email" ng-model="user.email" name="email" required
+							placeholder="Enter Email" ng-maxlength="100"/>
+							<span
+								ng-show="UserForm.email.$dirty && UserForm.email.$error.required"
+								class="requiredvalidationerror">Email Required</span> <span
+								ng-show="UserForm.email.$dirty && UserForm.email.$error.email"
+								class="requiredvalidationerror">Invalid Email</span> <span
+								ng-show="UserForm.email.$dirty && UserForm.email.$error.maxlength"
+								class="requiredvalidationerror">Maximum 100 Char Allowed</span>
+								
+					</div>
+					
+					
+				
+					<div class="form-group">
+					<label for="landedDate" class="col-sm-2 control-label">Landed Date</label>
+						<input type="date" ng-model="user.landedDate" name="landedDate"
+							required placeholder="Enter Landed Date" /><br /> 
+							
+							<span ng-show="UserForm.landedDate.$dirty && UserForm.landedDate.$error.required"
+							class="requiredvalidationerror">Required</span>
+					</div>
+					
+						<div class="form-group">
+						
+							<label class="col-sm-2 control-label">Address Line1</label>
+							
+							<textarea ng-model="address1" name="address1"
+								placeholder="Enter Address 1"  ng-maxlength="150"></textarea>
+								
+								<span
+								ng-show="UserForm.address1.$dirty && UserForm.address1.$error.maxlength"
+								class="requiredvalidationerror">Maximum 150 Char Allowed</span>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Address Line2</label>
+							
+							<textarea ng-model="address2" name="address2"
+								placeholder="Enter Address 2"  ng-maxlength="150"></textarea>
+								
+								<span
+								ng-show="UserForm.address2.$dirty && UserForm.address2.$error.maxlength"
+								class="requiredvalidationerror">Maximum 150 Char Allowed</span>
+								
+						</div>
+						
+						
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Phone 1</label>
+							
+							<input type="text" ng-model="phone1" name="phone1"
+								placeholder="Enter Phone 1" ng-maxlength="15">
+								
+								<span
+								ng-show="UserForm.phone1.$dirty && UserForm.phone1.$error.maxlength"
+								class="requiredvalidationerror">Maximum 15 Char Allowed</span>
+							
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Phone 2</label>
+							
+							<input type="text" ng-model="phone2" name="phone2"
+								placeholder="Enter Phone 2" ng-maxlength="15">
+								
+								<span
+								ng-show="UserForm.phone2.$dirty && UserForm.phone2.$error.maxlength"
+								class="requiredvalidationerror">Maximum 15 Char Allowed</span>
+					
+						</div>
+						
+
+				
+					<div class="form-group">
+						<input type="reset" ng-click="reset()" value="Reset"
+							class="btn btn-primary pull-right" />
+
+						<button type="submit" ng-click="addorupdate(user)"
+							class="btn btn-primary pull-right" value="Submit" title="Submit"
+							ng-disabled="!UserForm.$valid">
+							<span>Submit</span>
+						</button>
+					</div>
+	</form>
+</div>
+</div>

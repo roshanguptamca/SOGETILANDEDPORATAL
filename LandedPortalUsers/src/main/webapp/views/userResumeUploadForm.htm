@@ -1,0 +1,39 @@
+<div class="container well">
+
+	<div class="well" align="center">
+		<h4>User Resume Upload Form</h4>
+	</div>
+
+	<form name="UserResumeForm" class="app-form">
+		<label for="userResume" class="col-sm-2 control-label">Upload
+			Resume</label> <input type="file" id="userImage">
+
+
+		<button type="submit" ng-click="uploadResume()"
+			class="btn btn-primary pull-right" value="Submit" title="Submit"
+			ng-disabled="!UserResumeForm.$valid">
+			<span>Upload Resume</span>
+		</button>
+</form>
+
+	<div>
+		<table ng-table class="table">
+		<thead>
+	<tr>
+		<th>Resume</th>
+		<th>Remove</th>
+		<th>Download</th>
+	</tr>
+	</thead>
+	
+			<tr ng-repeat="user in friends">
+				<td data-title="'Name'">{{user.name}}</td>
+				<td data-title="'Remove'"><a href="#/">Remove</a></td>
+      			<td data-title="'Download'"><a href="#/">Download</a></td>
+			</tr>
+		</table>
+
+
+	</div>
+	
+</div>
