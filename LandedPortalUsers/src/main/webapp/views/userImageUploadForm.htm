@@ -1,0 +1,31 @@
+<div class="container well">
+
+
+	<div class="well" align="center">
+		<h4>User Image Upload Form</h4>
+		
+	</div>
+	
+	<div>
+		<form name="UserImageForm" class="app-form" >
+ 			<label for="userImage" class="col-sm-2 control-label">Select Image</label>
+ 				<input type="file" id="userResume">
+ 
+ 
+ 						<button type="submit" ng-click="uploadResume()"
+							class="btn btn-primary pull-right" value="Submit" title="Submit"
+							ng-disabled="!UserImageForm.$valid">
+							<span>Flash In Profile</span>
+						</button>
+
+		</form>
+	</div>
+	<div  class="well">
+
+		<div>
+			<img width="200" alt="Profile Picture" src="http://www.maglol.com/wp-content/uploads/2015/04/hrithik_roshan.jpg">
+
+		</div>
+
+	</div>
+</div>

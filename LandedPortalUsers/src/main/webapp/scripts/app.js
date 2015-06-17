@@ -19,7 +19,20 @@ webappApp.config([ '$routeProvider', function($routeProvider){
 	}).when('/login', {
 		templateUrl : 'views/Login.htm',
 		controller : 'loginCtrl'
-	}).otherwise({
+	})
+	.when('/userInputFrom', {
+		templateUrl : 'views/userInputFrom.htm',
+		controller : 'UserManagmentCtrl'
+	})
+	.when('/userImageUploadForm', {
+		templateUrl : 'views/userImageUploadForm.htm',
+		controller : 'UploadImageCtrl'
+	})
+	.when('/userResumeUploadForm', {
+		templateUrl : 'views/userResumeUploadForm.htm',
+		controller : 'UploadResumeCtrl'
+	})
+	.otherwise({
 		redirectTo : '/searchemp'
 	});
 } ]);
