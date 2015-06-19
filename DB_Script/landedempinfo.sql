@@ -134,8 +134,10 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `landedempinfo`.`user_address` ;
 
 CREATE TABLE IF NOT EXISTS `landedempinfo`.`user_address` (
+  `aid` INT(11) NOT NULL,
   `uid` INT(11) NOT NULL,
   `address` VARCHAR(150) NULL DEFAULT NULL,
+  PRIMARY KEY (`aid`),
   INDEX `user_id_address_idx` (`uid` ASC),
   CONSTRAINT `user_id_address`
     FOREIGN KEY (`uid`)
@@ -152,8 +154,10 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `landedempinfo`.`user_motivation` ;
 
 CREATE TABLE IF NOT EXISTS `landedempinfo`.`user_motivation` (
+  `mid` INT(11) NOT NULL,
   `uid` INT(11) NOT NULL,
   `motivation` BLOB NULL DEFAULT NULL,
+   PRIMARY KEY (`mid`),
   INDEX `user_id_motivation_idx` (`uid` ASC),
   CONSTRAINT `user_id_motivation`
     FOREIGN KEY (`uid`)
@@ -170,8 +174,10 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `landedempinfo`.`user_phone` ;
 
 CREATE TABLE IF NOT EXISTS `landedempinfo`.`user_phone` (
+  `pid` INT(11) NOT NULL,
   `uid` INT(11) NOT NULL,
   `contactno` VARCHAR(20) NULL DEFAULT NULL,
+   PRIMARY KEY (`pid`),
   INDEX `user_id_phone_idx` (`uid` ASC),
   CONSTRAINT `user_id_phone`
     FOREIGN KEY (`uid`)
@@ -188,11 +194,13 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `landedempinfo`.`user_resumes` ;
 
 CREATE TABLE IF NOT EXISTS `landedempinfo`.`user_resumes` (
-  `userId` INT(11) NOT NULL,
+  `rid` INT(11) NOT NULL,
+  `uid` INT(11) NOT NULL,
   `Resume` BLOB NULL DEFAULT NULL,
-  INDEX `user_id_resume_idx` (`userId` ASC),
+    PRIMARY KEY (`rid`),
+  INDEX `user_id_resume_idx` (`uid` ASC),
   CONSTRAINT `user_id_resume`
-    FOREIGN KEY (`userId`)
+    FOREIGN KEY (`uid`)
     REFERENCES `landedempinfo`.`users` (`uid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
