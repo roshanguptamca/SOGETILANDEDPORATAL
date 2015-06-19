@@ -17,6 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	public List<Employees> getEmployees() throws Exception {
 
+		System.out.println("test success");
 		return employeeDao.getEmployees();
 	}
 
