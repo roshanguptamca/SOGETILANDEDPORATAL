@@ -1,6 +1,8 @@
 package com.sogeti.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
+
 import javax.persistence.*;
 
 
@@ -51,6 +53,37 @@ public class UserResume implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(resume);
+		result = prime * result + rid;
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserResume other = (UserResume) obj;
+		if (!Arrays.equals(resume, other.resume))
+			return false;
+		if (rid != other.rid)
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
 	}
 
 }

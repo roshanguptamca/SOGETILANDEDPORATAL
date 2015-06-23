@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.HibernateException;
-import org.hibernate.SQLQuery;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,12 +13,11 @@ import org.springframework.stereotype.Repository;
 
 import com.sogeti.dao.EmployeeSearchDao;
 import com.sogeti.model.CustomUser;
+import com.sogeti.model.User;
 
 @Repository("employeeDao")
 public class EmployeeSearchDaoImpl implements EmployeeSearchDao {
 
-	public static final String getCustomUser = "select  users.emp_id,users.name,user_address.address,user_phone.contactno from users,user_address,user_phone ";
-	
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -38,8 +37,8 @@ public class EmployeeSearchDaoImpl implements EmployeeSearchDao {
 
 		try {
 			tx = session.beginTransaction();
-			SQLQuery query = session.createSQLQuery(getCustomUser);
-		
+			Query query = session.getNamedQuery(User.getUserCustomeData);
+
 			List<Object[]> userList = query.list();
 			for (int i = 0; i < userList.size(); i++) {
 				Object[] obj = (Object[]) userList.get(i);
@@ -50,28 +49,7 @@ public class EmployeeSearchDaoImpl implements EmployeeSearchDao {
 				customUser.setContactno(obj[3].toString());
 				customUserList.add(customUser);
 			}
-			
-			CustomUser customUser = new CustomUser();
-			customUser.setEmp_id("456");
-			customUser.setName("abcd");
-			customUser.setAddress("uuu");
-			customUser.setContactno("7824");
-			customUserList.add(customUser);
-			
-			CustomUser customUser1 = new CustomUser();
-			customUser1.setEmp_id("789");
-			customUser1.setName("pqrs");
-			customUser1.setAddress("uuu");
-			customUser1.setContactno("7824");
-			customUserList.add(customUser1);
-			
-			CustomUser customUser2 = new CustomUser();
-			customUser2.setEmp_id("14566");
-			customUser2.setName("xyz");
-			customUser2.setAddress("uuu");
-			customUser2.setContactno("7824");
-			customUserList.add(customUser2);
-			
+
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
