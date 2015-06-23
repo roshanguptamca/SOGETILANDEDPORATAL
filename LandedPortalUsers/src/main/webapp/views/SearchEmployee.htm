@@ -2,38 +2,33 @@
 <table align="center" class="table table-striped">
 	<tr>
 		<td>Search Employee By :</td>
-		<td><select>
-				<option value="eid">Employee Id</option>
-				<option value="ename">Employee Name</option>
-				<option value="eemail">Employee Email</option>
-				<option value="eloc">Employee Location</option>
-		</select></td>
-		<td>&nbsp;&nbsp;<input type="text" id="val" /></td>
+		<!-- <td><select ng-model="searchParameter">
+				<option value="emp_id">Employee Id</option>
+				<option value="name">Employee Name</option>
+		</select></td> -->
+		<td><input type="text"  ng-model="searchValue" /></td>
 		<td>&nbsp;&nbsp;
-			<button type="button" class="btn btn-info" ng-click="getEmployee()">Search</button>
+			<!-- <button type="button" class="btn btn-info" ng-click="getEmployee(searchParameter,searchValue)">Search</button> -->
 </table>
 <br>
 
-<div class="container" ng-controller="SearchempCtrl">
+<div class="container" ng-controller="SearchempCtrl" ng-init="getEmployee()">
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>Employee ID</th>
 				<th>Employee Name</th>
-				<th>Email</th>
 				<th>Address</th>
-				<th>Location</th>
-				<th>Contact no.</th>
+				<th>Contact no</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="emply in names">
-				<td>{{emply.Name}}</td>
-				<td>{{emply.Name}}</td>
-				<td>{{emply.Country}}</td>
-				<td>{{emply.Country}}</td>
-				<td>{{emply.Name}}</td>
-				<td>{{emply.Country}}</td>
+			<tr ng-repeat="emply in names  | orderBy:'name' | filter:searchValue">
+				<td>{{emply.emp_id}}</td>
+				<td>{{emply.name}}</td>
+				<td>{{emply.address}}</td>
+				<td>{{emply.contactno}}</td>
 			</tr>
 		</tbody>
 	</table>

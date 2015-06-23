@@ -2,8 +2,8 @@ package com.sogeti.service;
 
 import java.util.List;
 
-import com.sogeti.model.Employees;
+import com.sogeti.model.CustomUser;
 
 public interface EmployeeService {
-	public List<Employees> getEmployees() throws Exception;
+	public List<CustomUser> getEmployees() throws Exception;
 }
