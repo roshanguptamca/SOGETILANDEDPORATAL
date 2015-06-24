@@ -20,32 +20,6 @@ webappApp.controller('SearchempCtrl', function($scope, $routeParams, $http,
 
 	};
 	
-	
-	
-	/*$scope.getEmployee = function() {
-		$http.get("http://www.w3schools.com/angular/customers.php").success(
-				function(response) {
-					$scope.names = response.records;
-				});
-	}*/
-	
-	
-/*
-	$scope.getEmployee = function(searchParameter, searchValue) {
-		
-	   var userObject = [];
-		$http.get('employeeSearch/' + searchParameter + '/' + searchValue).
-
-		success(function(data) {
-
-			console.log(JSON.stringify(data));
-			
-			 var temp = JSON.stringify(data);
-			 
-	
-		});
-	};*/
-	
 });
 
 

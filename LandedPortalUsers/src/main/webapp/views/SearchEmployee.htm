@@ -1,19 +1,15 @@
 <p>Search Employee</p>
+
+
 <table align="center" class="table table-striped">
 	<tr>
 		<td>Search Employee By :</td>
-		<!-- <td><select ng-model="searchParameter">
-				<option value="emp_id">Employee Id</option>
-				<option value="name">Employee Name</option>
-		</select></td> -->
 		<td><input type="text"  ng-model="searchValue" /></td>
 		<td>&nbsp;&nbsp;
-			<!-- <button type="button" class="btn btn-info" ng-click="getEmployee(searchParameter,searchValue)">Search</button> -->
 </table>
-<br>
+	  
 
 <div class="container" ng-controller="SearchempCtrl" ng-init="getEmployee()">
-
 	<table class="table table-striped">
 		<thead>
 			<tr>

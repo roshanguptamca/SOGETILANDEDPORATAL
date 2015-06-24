@@ -13,10 +13,11 @@ import java.util.Date;
  */
 @Entity
 @Table(name="knowledge_base")
-@NamedQuery(name="KnowledgeBase.findAll", query="SELECT k FROM KnowledgeBase k")
+@NamedNativeQueries({ @NamedNativeQuery (name=KnowledgeBase.getKnowledgeBaseCustomeData, query="select  customer.customername,users.name,knowledge_base.question,knowledge_base.answer,knowledge_base.interview_date from users,customer,knowledge_base")})
 public class KnowledgeBase implements Serializable {
 	
-
+	public static final String getKnowledgeBaseCustomeData = "KnowledgeBase.getKnowledgeBaseCustomeData";
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id

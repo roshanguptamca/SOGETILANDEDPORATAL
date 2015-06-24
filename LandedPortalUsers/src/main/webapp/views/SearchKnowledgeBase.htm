@@ -2,19 +2,17 @@
 <table align="center" class="table table-striped">
 	<tr>
 		<td>Search By Customer :</td>
-		<td><select>
+		<td><select ng-model="customerName">
+				<option value="">All Customers</option>
 				<option value="ing">ING Bank</option>
 				<option value="rabo">RaboBank</option>
 				<option value="abn">ABN Amro</option>
 				<option value="sns">SNS Bank</option>
 		</select></td>
-		<td>&nbsp;&nbsp;Date : <input type="text"></td>
-		<td>&nbsp;&nbsp;
-			<button type="button" class="btn btn-info" ng-click="getKB()">Search</button>
 </table>
 <br>
 
-<div class="container" ng-controller="SearchkbCtrl">
+  <div class="container" ng-controller="SearchkbCtrl" ng-init="getKB()">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -26,13 +24,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="kb in names">
-				<td>{{kb.Name}}</td>
-				<td>{{kb.Name}}</td>
-				<td>{{kb.Country}}</td>
-				<td>{{kb.Country}}</td>
-				<td>{{kb.Name}}</td>
-				<td>{{kb.Country}}</td>
+			<tr ng-repeat="kb in names | filter:customerName">
+				<td>{{kb.customerName}}</td>
+				<td>{{kb.employeeName}}</td>
+				<td>{{kb.question}}</td>
+				<td>{{kb.answer}}</td>
+				<td>{{kb.interviewDate}}</td>
 			</tr>
 		</tbody>
 	</table>
