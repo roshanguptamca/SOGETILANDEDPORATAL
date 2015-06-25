@@ -1,0 +1,77 @@
+
+ <div class="container">
+   <div class="row">
+     <div class="col-sm-12">   
+            <div class="col-sm-4">    
+	             <label for="inputCustomer" class="control-label col-sm-4">Customer:</label>	             	        
+			     <select ng-model="inputCustomer" ng-options="cust.customerName for cust in customers" class="col-sm-6"></select>	     				 
+			</div>	 
+			
+			<div class="col-md-8">       
+	           <label for="inputInterviewDate" class="control-label col-sm-3">Interview Date: </label>	
+	            <p class="input-group" class="control-label col-sm-4">
+	              <input type="date" class="form-control" datepicker-popup ng-model="interviewDate" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+	              <span class="input-group-btn">
+	                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+	              </span>
+	            </p>
+            </div>							   
+     </div>	   
+   </div> 
+   </br>
+   <div class="row">
+       <div class="col-sm-12">
+	        <label for="inputQuestion" class="control-label col-xs-2">Question</label>
+			<div class="col-xs-10">
+				<input type="text" class="form-control" id="inputQuestion" ng-model="inputQuestion" ng-required="true" placeholder="Question">
+			</div>
+	   </div>   
+   </div>
+   </br>
+   <div class="row">
+       <div class="col-sm-12">
+	        <label for="inputAnswer" class="control-label col-xs-2">Answer</label>
+			<div class="col-xs-10">
+				<input type="text" class="form-control" id="inputAnswer" ng-model="inputAnswer" ng-required="true" placeholder="Answer">
+			</div>
+       </div>   
+   </div>  
+   </br>
+   <div class="row">
+       <div class="col-sm-12">
+	       <div class="col-sm-4"></div>
+	       <button type="Submit" class="btn btn-primary col-sm-2" ng-click="addQuestion()">Submit</button>
+		   <button type="Edit" class="btn btn-primary col-sm-2">Edit</button> 
+           <div class="col-sm-4"></div>		   
+	   </div>
+   </div>   
+ 
+ <br/>
+ 
+ <div class="container">    
+   <div> 
+	<table id="questionTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Employee Name</th>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Interview Date</th>                
+            </tr>
+        </thead>       
+ 
+        <tbody>
+            <tr ng-repeat="question in knowledgeBase">
+			    <td>{{question.customerName}}</td>
+			    <td>{{question.employeeName}}</td>
+			    <td>{{question.question}}</td>
+			    <td>{{question.answer}}</td>
+			    <td>{{question.interviewDate}}</td>
+ 			 </tr>            	           
+        </tbody>
+    </table>
+   </div> 
+ </div>
+ </div>
+ 
