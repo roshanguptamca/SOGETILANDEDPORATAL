@@ -31,7 +31,10 @@ webappApp.config([ '$routeProvider', function($routeProvider){
 	.when('/userResumeUploadForm', {
 		templateUrl : 'views/userResumeUploadForm.htm',
 		controller : 'UploadResumeCtrl'
-	})
+	}).when('/addKnowledgeBase', {    	  
+        templateUrl: 'views/KnowledgeBase.html',
+        controller: 'addKnowledgeBaseController'
+    })
 	.otherwise({
 		redirectTo : '/searchemp'
 	});
